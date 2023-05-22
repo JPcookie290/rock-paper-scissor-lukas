@@ -1,7 +1,5 @@
 "use strict";
 
-let playerRoll = prompt("Geben Sie Ihre Wahl ein (Schere / Stein / Papier):");
-
 let computerPlay = () => {
   let computerRoll = parseInt(Math.random() * 3 + 1);
   if (computerRoll === 1) {
@@ -14,28 +12,62 @@ let computerPlay = () => {
   return computerRoll;
 };
 
-let playRound = (playerRoll, computerRoll) => {
-  let ergebnis = "";
+let playRound = (computerRoll) => {
+  let playerRoll = prompt("Geben Sie Ihre Wahl ein (Schere / Stein / Papier):");
+  let ergebnis = 0;
   if (playerRoll === "Schere" && computerRoll === "Stein") {
-    ergebnis = "Du verlierst! - Stein schlägt Schere";
+    console.log("Du verlierst! - Stein schlägt Schere");
+    ergebnis = 1;
   } else if (playerRoll === "Schere" && computerRoll === "Papier") {
-    ergebnis = "Du gewinnst! - Schere schlägt Papier";
+    console.log("Du gewinnst! - Schere schlägt Papier");
+    ergebnis = 2;
   } else if (playerRoll === "Schere" && computerRoll === "Schere") {
-    ergebnis = "Unentschieden!";
+    console.log("Unentschieden!");
+    ergebnis = 0;
   } else if (playerRoll === "Stein" && computerRoll === "Stein") {
-    ergebnis = "Unentschieden!";
+    console.log("Unentschieden!");
+    ergebnis = 0;
   } else if (playerRoll === "Stein" && computerRoll === "Papier") {
-    ergebnis = "Du verlierst! - Papier schlägt Stein";
+    console.log("Du verlierst! - Papier schlägt Stein");
+    ergebnis = 1;
   } else if (playerRoll === "Stein" && computerRoll === "Schere") {
-    ergebnis = "Du gewinnst! - Stein schlägt Schere";
+    console.log("Du gewinnst! - Stein schlägt Schere");
+    ergebnis = 2;
   } else if (playerRoll === "Papier" && computerRoll === "Stein") {
-    ergebnis = "Du gewinnst! - Papier schlägt Stein";
+    console.log("Du gewinnst! - Papier schlägt Stein");
+    ergebnis = 2;
   } else if (playerRoll === "Papier" && computerRoll === "Papier") {
-    ergebnis = "Unentschieden!";
+    console.log("Unentschieden!");
+    ergebnis = 0;
   } else if (playerRoll === "Papier" && computerRoll === "Schere") {
-    ergebnis = "Du verlierst! - Schere schlägt Papier";
+    console.log("Du verlierst! - Schere schlägt Papier");
+    ergebnis = 1;
   }
   return ergebnis;
 };
 
-console.log(playRound(playerRoll, computerPlay()));
+let game = () => {
+  let computerWin = 0;
+  let playerWin = 0;
+  let winner = "";
+  for (let i = 1; i <= 5; i++) {
+    let ergebnis = playRound(computerPlay());
+    if (ergebnis === 1) {
+      computerWin += 1;
+    } else if (ergebnis === 2) {
+      playerWin += 1;
+    }
+  }
+  console.log(computerWin, playerWin);
+  if (computerWin > playerWin) {
+    winner = "Der Computer hat gewonnen - " + computerWin + " zu " + playerWin;
+  } else if (computerWin < playerWin) {
+    winner = "Sie haben gewonnen - " + playerWin + " zu " + computerWin;
+  } else if (computerWin === playerWin) {
+    winner =
+      "Sie haben unentschieden gespielt - " + playerWin + " zu " + computerWin;
+  }
+  return winner;
+};
+
+console.log(game());
