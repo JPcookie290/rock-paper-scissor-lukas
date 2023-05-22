@@ -50,7 +50,7 @@ let game = () => {
   let computerWin = 0;
   let playerWin = 0;
   let winner = "";
-  for (let i = 1; i <= 5; i++) {
+  while (computerWin != 5 && playerWin != 5) {
     let ergebnis = playRound(computerPlay());
     if (ergebnis === 1) {
       computerWin += 1;
@@ -58,14 +58,10 @@ let game = () => {
       playerWin += 1;
     }
   }
-  console.log(computerWin, playerWin);
-  if (computerWin > playerWin) {
+  if (computerWin === 5) {
     winner = "Der Computer hat gewonnen - " + computerWin + " zu " + playerWin;
-  } else if (computerWin < playerWin) {
+  } else if (playerWin === 5) {
     winner = "Sie haben gewonnen - " + playerWin + " zu " + computerWin;
-  } else if (computerWin === playerWin) {
-    winner =
-      "Sie haben unentschieden gespielt - " + playerWin + " zu " + computerWin;
   }
   return winner;
 };
