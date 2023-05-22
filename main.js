@@ -1,21 +1,27 @@
 "use strict";
 
+/* function for random computer choice */
 let computerPlay = () => {
-  let computerRoll = parseInt(Math.random() * 3 + 1);
-  if (computerRoll === 1) {
-    computerRoll = "Schere";
-  } else if (computerRoll === 2) {
-    computerRoll = "Stein";
-  } else if (computerRoll === 3) {
-    computerRoll = "Papier";
-  }
-  return computerRoll;
+  let computerChoice = ["Schere", "Stein", "Papier"];
+  let computerRoll = Math.floor(Math.random() * 3);
+  return computerChoice[computerRoll];
 };
+
+/* function for a single round of the game */
 
 let playRound = (computerRoll) => {
   let playerRoll = prompt(
     "Geben Sie Ihre Wahl ein (Schere / Stein / Papier):"
   ).toLowerCase();
+  while (
+    playerRoll != "schere" &&
+    playerRoll != "stein" &&
+    playerRoll != "papier"
+  ) {
+    playerRoll = prompt(
+      "Bitte geben Sie eine gültige Wahl ein (Schere / Stein / Papier):"
+    ).toLowerCase();
+  }
   let ergebnis = 0;
   if (playerRoll === "schere" && computerRoll === "Stein") {
     console.log("Du verlierst! - Stein schlägt Schere");
@@ -48,11 +54,17 @@ let playRound = (computerRoll) => {
   return ergebnis;
 };
 
+/* function for the whole game */
+
 let game = () => {
   let computerWin = 0;
   let playerWin = 0;
   let winner = "";
-  while (computerWin != 5 && playerWin != 5) {
+  let winSelect = parseInt(
+    prompt("Geben Sie ein, wie viele Siege nötig sind um zu gewinnen:")
+  );
+  while (computerWin != winSelect && playerWin != winSelect) {
+    /* play until one has five points */
     let ergebnis = playRound(computerPlay());
     if (ergebnis === 1) {
       computerWin += 1;
@@ -60,9 +72,12 @@ let game = () => {
       playerWin += 1;
     }
   }
-  if (computerWin === 5) {
+
+  /* winning conditions */
+
+  if (computerWin === winSelect) {
     winner = "Der Computer hat gewonnen - " + computerWin + " zu " + playerWin;
-  } else if (playerWin === 5) {
+  } else if (playerWin === winSelect) {
     winner = "Sie haben gewonnen - " + playerWin + " zu " + computerWin;
   }
   return winner;
