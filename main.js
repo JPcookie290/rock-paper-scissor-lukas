@@ -13,33 +13,35 @@ let computerPlay = () => {
 };
 
 let playRound = (computerRoll) => {
-  let playerRoll = prompt("Geben Sie Ihre Wahl ein (Schere / Stein / Papier):");
+  let playerRoll = prompt(
+    "Geben Sie Ihre Wahl ein (Schere / Stein / Papier):"
+  ).toLowerCase();
   let ergebnis = 0;
-  if (playerRoll === "Schere" && computerRoll === "Stein") {
+  if (playerRoll === "schere" && computerRoll === "Stein") {
     console.log("Du verlierst! - Stein schlägt Schere");
     ergebnis = 1;
-  } else if (playerRoll === "Schere" && computerRoll === "Papier") {
+  } else if (playerRoll === "schere" && computerRoll === "Papier") {
     console.log("Du gewinnst! - Schere schlägt Papier");
     ergebnis = 2;
-  } else if (playerRoll === "Schere" && computerRoll === "Schere") {
+  } else if (playerRoll === "schere" && computerRoll === "Schere") {
     console.log("Unentschieden!");
     ergebnis = 0;
-  } else if (playerRoll === "Stein" && computerRoll === "Stein") {
+  } else if (playerRoll === "stein" && computerRoll === "Stein") {
     console.log("Unentschieden!");
     ergebnis = 0;
-  } else if (playerRoll === "Stein" && computerRoll === "Papier") {
+  } else if (playerRoll === "stein" && computerRoll === "Papier") {
     console.log("Du verlierst! - Papier schlägt Stein");
     ergebnis = 1;
-  } else if (playerRoll === "Stein" && computerRoll === "Schere") {
+  } else if (playerRoll === "stein" && computerRoll === "Schere") {
     console.log("Du gewinnst! - Stein schlägt Schere");
     ergebnis = 2;
-  } else if (playerRoll === "Papier" && computerRoll === "Stein") {
+  } else if (playerRoll === "papier" && computerRoll === "Stein") {
     console.log("Du gewinnst! - Papier schlägt Stein");
     ergebnis = 2;
-  } else if (playerRoll === "Papier" && computerRoll === "Papier") {
+  } else if (playerRoll === "papier" && computerRoll === "Papier") {
     console.log("Unentschieden!");
     ergebnis = 0;
-  } else if (playerRoll === "Papier" && computerRoll === "Schere") {
+  } else if (playerRoll === "papier" && computerRoll === "Schere") {
     console.log("Du verlierst! - Schere schlägt Papier");
     ergebnis = 1;
   }
