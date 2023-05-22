@@ -2,7 +2,7 @@
 
 /* function for random computer choice */
 let computerPlay = () => {
-  let computerChoice = ["Schere", "Stein", "Papier"];
+  let computerChoice = ["schere", "stein", "papier"];
   let computerRoll = Math.floor(Math.random() * 3);
   return computerChoice[computerRoll];
 };
@@ -23,33 +23,27 @@ let playRound = (computerRoll) => {
     ).toLowerCase();
   }
   let ergebnis = 0;
-  if (playerRoll === "schere" && computerRoll === "Stein") {
+  if (playerRoll === "schere" && computerRoll === "stein") {
     console.log("Du verlierst! - Stein schlägt Schere");
     ergebnis = 1;
-  } else if (playerRoll === "schere" && computerRoll === "Papier") {
+  } else if (playerRoll === "schere" && computerRoll === "papier") {
     console.log("Du gewinnst! - Schere schlägt Papier");
     ergebnis = 2;
-  } else if (playerRoll === "schere" && computerRoll === "Schere") {
-    console.log("Unentschieden!");
-    ergebnis = 0;
-  } else if (playerRoll === "stein" && computerRoll === "Stein") {
-    console.log("Unentschieden!");
-    ergebnis = 0;
-  } else if (playerRoll === "stein" && computerRoll === "Papier") {
+  } else if (playerRoll === "stein" && computerRoll === "papier") {
     console.log("Du verlierst! - Papier schlägt Stein");
     ergebnis = 1;
-  } else if (playerRoll === "stein" && computerRoll === "Schere") {
+  } else if (playerRoll === "stein" && computerRoll === "schere") {
     console.log("Du gewinnst! - Stein schlägt Schere");
     ergebnis = 2;
-  } else if (playerRoll === "papier" && computerRoll === "Stein") {
+  } else if (playerRoll === "papier" && computerRoll === "stein") {
     console.log("Du gewinnst! - Papier schlägt Stein");
     ergebnis = 2;
-  } else if (playerRoll === "papier" && computerRoll === "Papier") {
-    console.log("Unentschieden!");
-    ergebnis = 0;
-  } else if (playerRoll === "papier" && computerRoll === "Schere") {
+  } else if (playerRoll === "papier" && computerRoll === "schere") {
     console.log("Du verlierst! - Schere schlägt Papier");
     ergebnis = 1;
+  } else if (playerRoll === computerRoll) {
+    console.log("Unentschieden!");
+    ergebnis = 0;
   }
   return ergebnis;
 };
