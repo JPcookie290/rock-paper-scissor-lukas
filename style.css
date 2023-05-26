@@ -3,6 +3,7 @@ body {
     margin: 0;
     background-color: #035E7B;
     text-align: center;
+    font-family: 'Bruno Ace SC', cursive;
 }
 
 header {
@@ -11,11 +12,15 @@ header {
     margin-left: auto;
     margin-right: auto;
 }
-
+p{
+    font-size: 20pt;
+}
 h1 {
-    font-family: 'Bruno Ace SC', cursive;
     color: #035E7B;
     font-size: 45pt;
+}
+h3{
+    color: #FDFDFF;
 }
 
 button{
@@ -48,6 +53,27 @@ button{
     justify-self: center;
     height: 100%;
     width: 50%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+.player{
+    grid-row: 1;
+    grid-column: 1;
+    color: #820933;
+}
+.punktePlayer{
+    grid-row: 2;
+    grid-column: 1;
+}
+.computer{
+    grid-row: 1;
+    grid-column: 2;
+    color: #eb8258;
+}
+.punkteComputer{
+    grid-row: 2;
+    grid-column: 2;
 }
 
 .wahl {
@@ -67,6 +93,9 @@ button{
     justify-self: center;
     height: 100%;
     width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .button {
