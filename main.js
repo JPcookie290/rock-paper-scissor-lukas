@@ -65,7 +65,6 @@ let playRound = (playerRoll, computerRoll) => {
 /* function for the whole game */
 
 let game = () => {
-  let winner = "";
   /* play until one has five points */
   if (computerWin < 5 && playerWin < 5) {
     let ergebnis = playRound(playerRoll, computerPlay());
@@ -81,11 +80,10 @@ let game = () => {
   /* winning conditions */
 
   if (computerWin === 5) {
-    winner = "Der Computer hat gewonnen - " + computerWin + " zu " + playerWin;
+    info.innerHTML = "Der Computer hat gewonnen - " + computerWin + " zu " + playerWin;
   } else if (playerWin === 5) {
-    winner = "Sie haben gewonnen - " + playerWin + " zu " + computerWin;
+    info.innerHTML = "Sie haben gewonnen - " + playerWin + " zu " + computerWin;
   }
-  return winner;
 };
 
 /* reset */
