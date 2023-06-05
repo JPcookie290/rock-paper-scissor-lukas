@@ -81,8 +81,10 @@ let game = () => {
 
   if (computerWin === 5) {
     info.innerHTML = "Der Computer hat gewonnen - " + computerWin + " zu " + playerWin;
+    info.parentElement.style.backgroundColor = 'red'
   } else if (playerWin === 5) {
     info.innerHTML = "Sie haben gewonnen - " + playerWin + " zu " + computerWin;
+    info.parentElement.style.backgroundColor = 'green'
   }
 };
 
