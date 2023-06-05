@@ -4,15 +4,11 @@
 
 In this game you play the classic game Rock-Paper-Scissors against the computer.
 
-This game is being played in the browser console, so you have to press F12 in your browser after starting the game.
+click your choice for (rock = Stein, paper = Papier, scissors = Schere).
 
-Then you will be asked, how many wins will be necessary to win the game.
+After each choice you will see, if you won the round or not.
 
-Then you type in your choice (rock = Stein, paper = Papier, scissors = Schere).
-
-After each choice you can see in the console, if you won the round or not.
-
-If someone reaches the selected amount of wins, the game will show in the console who won and the final score.
+If someone reaches 5 amount of wins, the game will show, who won and the final score.
 
 #### Code Explanation
 
