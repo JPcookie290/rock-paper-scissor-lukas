@@ -96,5 +96,6 @@ reset.onclick = function resetAll() {
   playerWin = 0;
   punktePr.textContent = playerWin;
   info.innerHTML = ""
+  info.parentElement.style.backgroundColor = ''
   console.log("reset");
 }
